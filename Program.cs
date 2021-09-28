@@ -3,7 +3,16 @@ namespace TicketingOOP
 {
     class Program
     {
+        //Method to view tickets
+        void viewTickets(TicketFile ticketFile){
+            //for each ticket in viewTicket, 
+            //Print it to the console
+        }
 
+        //Method to add tickets
+        void addTicket(Ticket ticket){
+
+        }
         static void Main(string[] args)
         {
             /*
