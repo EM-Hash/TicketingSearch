@@ -1,9 +1,13 @@
 ﻿using System;
+using System.IO;
 using NLog.Web;
 namespace TicketingOOP
 {
     class Program
     {
+        //Create static logger to go across all files
+        private static NLog.Logger logger = NLogBuilder.ConfigureNLog(Directory.GetCurrentDirectory() + "\\nlog.config").GetCurrentClassLogger();
+
         //Method to view tickets
         void viewTickets(TicketFile ticketFile){
             //for each ticket in viewTicket, 
@@ -50,6 +54,7 @@ namespace TicketingOOP
                                 - If they aren't, go back to menu
                                 - If they are, clear file
             */
+
             Console.WriteLine("Hello World!");
         }
     }
