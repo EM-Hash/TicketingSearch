@@ -1,4 +1,5 @@
 ﻿using System;
+using NLog.Web;
 namespace TicketingOOP
 {
     class Program
