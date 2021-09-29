@@ -1,0 +1,16 @@
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\bin\Debug\net5.0\TicketingOOP.exe
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\bin\Debug\net5.0\TicketingOOP.deps.json
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\bin\Debug\net5.0\TicketingOOP.runtimeconfig.json
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\bin\Debug\net5.0\TicketingOOP.runtimeconfig.dev.json
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\bin\Debug\net5.0\TicketingOOP.dll
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\bin\Debug\net5.0\ref\TicketingOOP.dll
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\bin\Debug\net5.0\TicketingOOP.pdb
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\obj\Debug\net5.0\TicketingOOP.csproj.AssemblyReference.cache
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\obj\Debug\net5.0\TicketingOOP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\obj\Debug\net5.0\TicketingOOP.AssemblyInfoInputs.cache
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\obj\Debug\net5.0\TicketingOOP.AssemblyInfo.cs
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\obj\Debug\net5.0\TicketingOOP.csproj.CoreCompileInputs.cache
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\obj\Debug\net5.0\TicketingOOP.dll
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\obj\Debug\net5.0\ref\TicketingOOP.dll
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\obj\Debug\net5.0\TicketingOOP.pdb
+C:\Users\addde\source\repos\WCTC Projects\TicketingOOP\obj\Debug\net5.0\TicketingOOP.genruntimeconfig.cache
