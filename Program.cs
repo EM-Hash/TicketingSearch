@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using NLog.Web;
+using System.Collections.Generic;
 namespace TicketingOOP
 {
     class Program
@@ -20,6 +21,11 @@ namespace TicketingOOP
         }
         static void Main(string[] args)
         {
+            //Create file path
+            string file = Directory.GetCurrentDirectory() + "\\Tickets.csv";
+            //Create TicketFile
+            TicketFile tickets = new TicketFile(file);
+
             /*
             TO DO:
             - Allow User To 
@@ -54,8 +60,6 @@ namespace TicketingOOP
                                 - If they aren't, go back to menu
                                 - If they are, clear file
             */
-
-            Console.WriteLine("Hello World!");
         }
     }
 }
