@@ -21,7 +21,7 @@ namespace TicketingOOP
         }
 
         //Method to add tickets
-        static void addTicket(TicketFile ticketFile){
+        static void addTicket(TicketFile ticketFile, string file){
             /* A ticket needs:
             - an ID
             - a summary
@@ -76,6 +76,22 @@ namespace TicketingOOP
             Ticket newTicket = new Ticket(id, summary, status, priority, submitter, 
             assigner, watchArray);
             //Add ticket to ticketFile and write to .csv file
+            ticketFile.addTicket(newTicket);
+            //Create a new streamwriter
+            StreamWriter sw = new StreamWriter(file, true);
+            //Create the string to write in, add in values save for the watchers
+            string fileTicket = $"{id},{summary},{status},{priority},{submitter},{assigner},";
+            //For each value in watchArray, save the last
+            for (int i = 0; i < watchArray.Length - 1; i++){
+                fileTicket += watchArray[i] + "|";
+            }
+            //Add in the last watcher
+            fileTicket += watchArray[watchArray.Length - 1];
+            //Write in the ticket
+            sw.WriteLine(fileTicket);
+            //Close the writer
+            sw.Close();
+            //Return to main method
         }
         //Method to ask the user for a value, and save it
         static string getValue(string valueName){
@@ -114,7 +130,7 @@ namespace TicketingOOP
                         break;
                     case "2":
                         //If the user selects 2, go to the addTicket method
-                        addTicket(ticketFile);
+                        addTicket(ticketFile, file);
                         break;
                     case "3":
                         //If the user selects 3, make sure they REALLY want to get rid of all the tickets

@@ -34,7 +34,7 @@ namespace TicketingOOP{
         //Method for printing ticket
         public string getTicket(){
             //Put in all the values save the watchers
-            string ticketLine = $"{id,-3} | {summary,-25} | {priority,-7} | {submitter,-15} | {assigner,-15} | ";
+            string ticketLine = $"{id,-11} | {summary,-25} | {priority,-15} | {submitter,-15} | {assigner,-15} | ";
             //For each watcher, save for the last one
             for (int i = 0; i < watching.Length - 1; i++){
                 //Append the watcher to the ticketLine
