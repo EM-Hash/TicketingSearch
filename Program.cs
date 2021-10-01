@@ -10,13 +10,13 @@ namespace TicketingOOP
         private static NLog.Logger logger = NLogBuilder.ConfigureNLog(Directory.GetCurrentDirectory() + "\\nlog.config").GetCurrentClassLogger();
 
         //Method to view tickets
-        void viewTickets(TicketFile ticketFile){
+        static void viewTickets(TicketFile ticketFile){
             //for each ticket in viewTicket, 
             //Print it to the console
         }
 
         //Method to add tickets
-        void addTicket(Ticket ticket){
+        static void addTicket(Ticket ticket, TicketFile ticketFile){
 
         }
         static void Main(string[] args)
@@ -24,7 +24,7 @@ namespace TicketingOOP
             //Create file path
             string file = Directory.GetCurrentDirectory() + "\\Tickets.csv";
             //Create TicketFile
-            TicketFile tickets = new TicketFile(file);
+            TicketFile ticketFile = new TicketFile(file);
 
             //Create do-while loop for user to choose what they wanted to do
             Boolean run = true;
