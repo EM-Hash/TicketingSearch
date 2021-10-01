@@ -22,7 +22,34 @@ namespace TicketingOOP
 
         //Method to add tickets
         static void addTicket(TicketFile ticketFile){
-
+            /* A ticket needs:
+            - an ID
+            - a summary
+            - a status
+            - a priority
+            - a submitter
+            - an assigner
+            - watchers
+            */
+            string id;
+            string summary;
+            string status;
+            string priority;
+            string submitter;
+            string assigner;
+            //For now, create a list of watchers - will convert later on
+            List<string> watchers = new List<string>();
+            //Generate the ID
+            //Ask the user for the...
+            //Summary
+            //Status
+            //Priority
+            //Submitter
+            //Assigner
+            //Watchers
+            //For each value, if it's blank, add in "N/A"
+            //Create new ticket
+            //Add ticket to ticketFile and write to .csv file
         }
         static void Main(string[] args)
         {
