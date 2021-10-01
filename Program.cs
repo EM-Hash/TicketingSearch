@@ -40,19 +40,26 @@ namespace TicketingOOP
             //For now, create a list of watchers - will convert later on
             List<string> watchers = new List<string>();
             //Generate the ID
+            //Take the value of the ID of the last ticket in TicketFile and add 1
+            id = ticketFile.lastID();
             //Ask the user for the...
             //Summary
+            summary = getValue("summary");
             //Status
+            status = getValue("status");
             //Priority
+            priority = getValue("priority");
             //Submitter
+            submitter = getValue("submitter");
             //Assigner
+            assigner = getValue("assigner");
             //Watchers
             //For each value, if it's blank, add in "N/A"
             //Create new ticket
             //Add ticket to ticketFile and write to .csv file
         }
         //Method to ask the user for a value, and save it
-        static string getValue(string valueNeeded, string valueName){
+        static string getValue(string valueName){
             Console.WriteLine($"Please enter the {valueName}: ");
             string value = Console.ReadLine();
             if (value == "" || value == " "){
