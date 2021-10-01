@@ -51,6 +51,16 @@ namespace TicketingOOP
             //Create new ticket
             //Add ticket to ticketFile and write to .csv file
         }
+        //Method to ask the user for a value, and save it
+        static string getValue(string valueNeeded, string valueName){
+            Console.WriteLine($"Please enter the {valueName}: ");
+            string value = Console.ReadLine();
+            if (value == "" || value == " "){
+                return "N/A";
+            } else {
+                return value;
+            }
+        }
         static void Main(string[] args)
         {
             //Create file path
