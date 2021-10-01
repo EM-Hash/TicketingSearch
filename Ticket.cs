@@ -1,15 +1,16 @@
 using System;
+using System.Collections.Generic;
 
 namespace TicketingOOP{
     public class Ticket{
         //Values w/ getters
-        int id {get;}
+        string id {get;}
         string summary {get;}
         string status {get;}
         string priority {get;}
         string submitter {get;}
         string assigner {get;}
-        string watching {get;}
+        string[] watching {get;}
 
         //Constructors 
 
@@ -19,8 +20,8 @@ namespace TicketingOOP{
         }
 
         //Constructor for when all arguments are given
-        public Ticket(int id, string summary, string status, 
-        string priority, string submitter, string assigner, string watching){
+        public Ticket(string id, string summary, string status, 
+        string priority, string submitter, string assigner, string[] watching){
             this.id = id;
             this.summary = summary;
             this.status = status;
