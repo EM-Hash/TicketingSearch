@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using NLog.Web;
+using System.Linq;
 
 namespace TicketingOOP{
     public class TicketFile{
@@ -41,6 +42,11 @@ namespace TicketingOOP{
         //Method to return ticket list
         public List<Ticket> getTickets(){
             return tickets;
+        }
+
+        //Method to return the last ticket's ID
+        public string lastID(){
+            return tickets.Last<Ticket>().getID();
         }
     }
 }
