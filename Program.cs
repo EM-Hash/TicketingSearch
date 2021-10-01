@@ -54,8 +54,27 @@ namespace TicketingOOP
             //Assigner
             assigner = getValue("assigner");
             //Watchers
-            //For each value, if it's blank, add in "N/A"
+            bool addWatcher = true;
+            do{
+                //Until the user is done adding watchers
+                //Prompt the user to add a watcher
+                watchers.Add(getValue("next watcher"));
+                //Check if the user would like to add another watcher
+                Console.WriteLine("Add another watcher? [Y/N]: ");
+                string ans = Console.ReadLine();
+                if (ans.ToLower()[0] == 'y'){
+                    //If the user wants to keep going, the boolean will stay true
+                    addWatcher = true;
+                } else {
+                    //Else, it will be false, and the loop will break
+                    addWatcher = false;
+                }
+            } while (addWatcher);
+            //Once finished, create a watcher array
+            string[] watchArray = watchers.ToArray();
             //Create new ticket
+            Ticket newTicket = new Ticket(id, summary, status, priority, submitter, 
+            assigner, watchArray);
             //Add ticket to ticketFile and write to .csv file
         }
         //Method to ask the user for a value, and save it
