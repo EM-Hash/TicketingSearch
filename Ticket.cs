@@ -44,5 +44,10 @@ namespace TicketingOOP{
             ticketLine += watching[watching.Length - 1];
             return(ticketLine);
         }
+
+        //Method for returning the ID
+        public string getID(){
+            return id;
+        }
     }
 }
