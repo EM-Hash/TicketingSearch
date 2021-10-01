@@ -26,18 +26,39 @@ namespace TicketingOOP
             //Create TicketFile
             TicketFile tickets = new TicketFile(file);
 
-            /*
-            TO DO:
-            - Allow User To 
-                - View Tickets
-                - Add Tickets
-                - Erase Tickets
-            - USE METHODS
-            - Create Ticket Class
-            - Create TicketFile Class
+            //Create do-while loop for user to choose what they wanted to do
+            Boolean run = true;
+            do{
+                //Prompt user
+                Console.WriteLine("Welcome to the Ticketing Program!");
+                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("[1] View Tickets");
+                Console.WriteLine("[2] Add Tickets");
+                Console.WriteLine("[3] Clear Tickets");
+                Console.WriteLine("[4] Quit");
+                //Take in user input
+                string ans = Console.ReadLine();
+                //Use switch statement to decide where to go
+                switch(ans){
+                    case "1":
+                        //If the user selects 1, go to the viewTickets method
+                        break;
+                    case "2":
+                        //If the user selects 2, go to the addTicket method
+                        break;
+                    case "3":
+                        //If the user selects 3, make sure they REALLY want to get rid of all the tickets
+                        //If so, erase the file, if not, do nothing
+                        break;
+                    default:
+                        run = false;
+                        break;
+                }
 
+            } while (run);
+
+            /*
             Plan:
-            - Create TicketFile object, load in tickets
             - Do-While Loop of:
                 - Give user menu
                     - Switch that goes to appropriate function
