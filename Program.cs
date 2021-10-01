@@ -11,8 +11,13 @@ namespace TicketingOOP
 
         //Method to view tickets
         static void viewTickets(TicketFile ticketFile){
-            //for each ticket in viewTicket, 
-            //Print it to the console
+            //Get TicketFile list
+            List<Ticket> tickets = ticketFile.getTickets();
+            //for each ticket in the tickets list
+            foreach (Ticket t in tickets){
+                //Print the ticket
+                Console.WriteLine(t.getTicket());
+            }
         }
 
         //Method to add tickets
@@ -26,7 +31,7 @@ namespace TicketingOOP
             //Create TicketFile
             TicketFile ticketFile = new TicketFile(file);
 
-            //Create do-while loop for user to choose what they wanted to do
+            //Create do-while loop for user to choose what they want to do
             Boolean run = true;
             do{
                 //Prompt user
