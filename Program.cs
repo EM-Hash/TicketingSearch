@@ -16,7 +16,7 @@ namespace TicketingOOP
         }
 
         //Method to add tickets
-        static void addTicket(Ticket ticket, TicketFile ticketFile){
+        static void addTicket(TicketFile ticketFile){
 
         }
         static void Main(string[] args)
@@ -42,19 +42,31 @@ namespace TicketingOOP
                 switch(ans){
                     case "1":
                         //If the user selects 1, go to the viewTickets method
+                        viewTickets(ticketFile);
                         break;
                     case "2":
                         //If the user selects 2, go to the addTicket method
+                        addTicket(ticketFile);
                         break;
                     case "3":
                         //If the user selects 3, make sure they REALLY want to get rid of all the tickets
+                        Console.WriteLine();
+                        Console.WriteLine("Delete all tickets? (Note: This CANNOT be undone) [Y/N]: ");
+                        string choice = Console.ReadLine();
                         //If so, erase the file, if not, do nothing
+                        if (choice[0] == 'Y' || choice[0] == 'y'){
+                            //Erase the file
+                            StreamWriter sw = new StreamWriter(file);
+                            //Write in the header line
+                            sw.WriteLine("TicketID, Summary, Status, Priority, Submitter, Assigned, Watching");
+                            //Close the stream writer
+                            sw.Close();
+                        }
                         break;
                     default:
                         run = false;
                         break;
                 }
-
             } while (run);
 
             /*

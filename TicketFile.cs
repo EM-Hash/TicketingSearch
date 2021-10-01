@@ -35,6 +35,7 @@ namespace TicketingOOP{
                 //Add ticket to list
                 tickets.Add(tempTicket);
             }
+            sr.Close();
         }
 
         //Method to return ticket list
