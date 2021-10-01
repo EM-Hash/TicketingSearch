@@ -48,5 +48,11 @@ namespace TicketingOOP{
         public string lastID(){
             return tickets.Last<Ticket>().getID();
         }
+
+        //Method to add ticket to ticket list
+        public void addTicket(Ticket ticket){
+            tickets.Add(ticket);
+            return;
+        }
     }
 }
