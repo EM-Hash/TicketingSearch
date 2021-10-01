@@ -23,13 +23,23 @@ namespace TicketingOOP{
             //While there are still tickets in the file...
             while (!sr.EndOfStream){
                 //Read a line
-
+                string line = sr.ReadLine();
                 //Parse line
-
+                //There are seven sections, separated by a comma
+                string[] sections = line.Split(',');
+                //There are an unknown number of watchers, but are separated by a |
+                string[] watchers = sections[6].Split('|');
                 //Make new ticket
+                Ticket tempTicket = new Ticket(sections[0], sections[1], sections[2], sections[3],
+                sections[4], sections[5], watchers);
+                //Add ticket to list
+                tickets.Add(tempTicket);
             }
         }
 
-        //Method to print tickets
+        //Method to return ticket list
+        public List<Ticket> getTickets(){
+            return tickets;
+        }
     }
 }
