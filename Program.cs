@@ -154,6 +154,8 @@ namespace TicketingOOP
                             sw.WriteLine("TicketID, Summary, Status, Priority, Submitter, Assigned, Watching");
                             //Close the stream writer
                             sw.Close();
+                            //Rebuild ticket file
+                            ticketFile = new TicketFile(file);
                         }
                         break;
                     default:
