@@ -31,7 +31,7 @@ namespace TicketingOOP
             - an assigner
             - watchers
             */
-            string id;
+            int id;
             string summary;
             string status;
             string priority;
@@ -41,7 +41,16 @@ namespace TicketingOOP
             List<string> watchers = new List<string>();
             //Generate the ID
             //Take the value of the ID of the last ticket in TicketFile and add 1
-            id = ticketFile.lastID();
+            //To do this, first take in the last ID as an int
+            if (!Int32.TryParse(ticketFile.lastID(),out id)){
+                //If it can't be an int, then start at 0
+                id = 0;
+            }
+            //Add to the id
+            id += 1;
+            //Convert the id to a string
+            string tempID = id.ToString();
+
             //Ask the user for the...
             //Summary
             summary = getValue("summary");
@@ -73,7 +82,7 @@ namespace TicketingOOP
             //Once finished, create a watcher array
             string[] watchArray = watchers.ToArray();
             //Create new ticket
-            Ticket newTicket = new Ticket(id, summary, status, priority, submitter, 
+            Ticket newTicket = new Ticket(tempID, summary, status, priority, submitter, 
             assigner, watchArray);
             //Add ticket to ticketFile and write to .csv file
             ticketFile.addTicket(newTicket);
