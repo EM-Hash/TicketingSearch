@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TicketingOOP{
+namespace TicketingMidTerm{
     public class Ticket{
         //Values w/ getters
         string id {get;}
