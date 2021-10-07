@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 namespace TicketingMidTerm{
-    public class Ticket{
+    public abstract class Ticket{
         //Values w/ getters
         string id {get;}
         string summary {get;}
@@ -32,7 +32,7 @@ namespace TicketingMidTerm{
         }
 
         //Method for printing ticket
-        public string getTicket(){
+        public virtual string getTicket(){
             //Put in all the values save the watchers
             string ticketLine = $"{id,-11} | {summary,-25} | {priority,-15} | {submitter,-15} | {assigner,-15} | ";
             //For each watcher, save for the last one
