@@ -4,7 +4,7 @@ using System.IO;
 using NLog.Web;
 using System.Linq;
 
-namespace TicketingOOP{
+namespace TicketingMidTerm{
     public class TicketFile{
         /* 
         Needs a file reader and a list of tickets
