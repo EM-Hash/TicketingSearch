@@ -367,11 +367,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\addde\\source\\repos\\WCTC Projects\\TicketingOOP\\TicketingOOP.csproj",
+      "projectUniqueName": "C:\\Users\\addde\\source\\repos\\WCTC Projects\\TicketingMidterm\\TicketingOOP.csproj",
       "projectName": "TicketingOOP",
-      "projectPath": "C:\\Users\\addde\\source\\repos\\WCTC Projects\\TicketingOOP\\TicketingOOP.csproj",
+      "projectPath": "C:\\Users\\addde\\source\\repos\\WCTC Projects\\TicketingMidterm\\TicketingOOP.csproj",
       "packagesPath": "C:\\Users\\addde\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\addde\\source\\repos\\WCTC Projects\\TicketingOOP\\obj\\",
+      "outputPath": "C:\\Users\\addde\\source\\repos\\WCTC Projects\\TicketingMidterm\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
