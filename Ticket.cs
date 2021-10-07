@@ -34,14 +34,7 @@ namespace TicketingMidTerm{
         //Method for printing ticket
         public virtual string getTicket(){
             //Put in all the values save the watchers
-            string ticketLine = $"{id,-11} | {summary,-25} | {priority,-15} | {submitter,-15} | {assigner,-15} | ";
-            //For each watcher, save for the last one
-            for (int i = 0; i < watching.Length - 1; i++){
-                //Append the watcher to the ticketLine
-                ticketLine += watching[i] + ", ";
-            }
-            //Add on the last watcher
-            ticketLine += watching[watching.Length - 1];
+            string ticketLine = $"{id,-11} | {summary,-25} | {priority,-15} | {submitter,-15} | {assigner,-15} | {watcher.join(','), -15}";
             return(ticketLine);
         }
 
