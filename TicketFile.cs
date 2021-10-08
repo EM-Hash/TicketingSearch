@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace TicketingMidTerm{
-    public abstract class TicketFile<Ticket>{
+    public abstract class TicketFile<T> where T : Ticket{
         /* 
         Needs a file reader and a list of tickets
         */
         //All the tickets in the file
-        public List<Ticket> tickets;
+        public List<T> tickets;
         //The stream reader
         public StreamReader sr;
         //TicketFile needs a method to print tickets, and a constructor that starts w/ 
@@ -17,21 +17,22 @@ namespace TicketingMidTerm{
 
         //Constructor
         public TicketFile(){
-            
+            //Construct list
+            tickets = new List<T>();
         }
 
         //Method to return ticket list
-        public List<Ticket> getTickets(){
+        public List<T> getTickets(){
             return tickets;
         }
 
-        // //Method to return the last ticket's ID
-        // public string lastID(){
-        //     return tickets.Last().getID();
-        // }
+        //Method to return the last ticket's ID
+        public string lastID(){
+            return tickets.Last().id;
+        }
 
         //Method to add ticket to ticket list
-        public void addTicket(Ticket ticket){
+        public void addTicket(T ticket){
             tickets.Add(ticket);
             return;
         }
