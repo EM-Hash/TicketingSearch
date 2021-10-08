@@ -1,36 +1,37 @@
 using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace TicketingMidTerm{
-    public abstract class TicketFile<T>{
+    public abstract class TicketFile<Ticket>{
         /* 
         Needs a file reader and a list of tickets
         */
         //All the tickets in the file
-        List<T> tickets;
+        public List<Ticket> tickets;
         //The stream reader
-        StreamReader sr;
+        public StreamReader sr;
         //TicketFile needs a method to print tickets, and a constructor that starts w/ 
         //Reading the file and making the list of tickets
 
         //Constructor
-            //Doesn't do anything - just there to be overriden 
-            //This is because each file will have different requirements for separating it, so it will be handled different
-            //for each file class
-        public virtual ticketFile(){
-            tickets = new List<T>();
+        public TicketFile(){
+            
         }
 
         //Method to return ticket list
-        public List<T> getTickets(){
+        public List<Ticket> getTickets(){
             return tickets;
         }
 
-        //Method to return the last ticket's ID
-        public string lastID(){
-            return tickets.Last<T>().getID();
-        }
+        // //Method to return the last ticket's ID
+        // public string lastID(){
+        //     return tickets.Last().getID();
+        // }
 
         //Method to add ticket to ticket list
-        public void addTicket(T ticket){
+        public void addTicket(Ticket ticket){
             tickets.Add(ticket);
             return;
         }

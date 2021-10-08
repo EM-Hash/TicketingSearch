@@ -26,3 +26,15 @@ C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\obj\Debug\net5.0\Tick
 C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\obj\Debug\net5.0\TicketingOOP.dll
 C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\obj\Debug\net5.0\ref\TicketingOOP.dll
 C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\obj\Debug\net5.0\TicketingOOP.pdb
+C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\bin\Debug\net5.0\TicketingOOP.exe
+C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\bin\Debug\net5.0\TicketingOOP.deps.json
+C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\bin\Debug\net5.0\TicketingOOP.runtimeconfig.json
+C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\bin\Debug\net5.0\TicketingOOP.runtimeconfig.dev.json
+C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\bin\Debug\net5.0\TicketingOOP.dll
+C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\bin\Debug\net5.0\ref\TicketingOOP.dll
+C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\bin\Debug\net5.0\TicketingOOP.pdb
+C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\bin\Debug\net5.0\NLog.dll
+C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\bin\Debug\net5.0\NLog.Extensions.Logging.dll
+C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\bin\Debug\net5.0\NLog.Web.AspNetCore.dll
+C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\obj\Debug\net5.0\TicketingOOP.csproj.CopyComplete
+C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\obj\Debug\net5.0\TicketingOOP.genruntimeconfig.cache
