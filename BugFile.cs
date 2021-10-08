@@ -9,13 +9,16 @@ namespace TicketingMidTerm{
     
         //Constructor -- Takes in a file and turns it into a list of bug tickets
         public BugFile(string file){ 
-            //Create a streamreader with the file
+            //Init' stream reader
             sr = new StreamReader(file);
+            //Init' the tickets list
+            tickets = new List<Bug>();
+
             //Fill in tickets
+            //Take in the first line (title line)
+            sr.ReadLine();
             //While there are still tickets in the file...
             while (!sr.EndOfStream){
-                //Instantiate the tickets list
-                tickets = new List<Bug>();
                 //Read a line
                 string line = sr.ReadLine();
                 //Parse line
@@ -24,11 +27,12 @@ namespace TicketingMidTerm{
                 //There are an unknown number of watchers, but are separated by a |
                 List<string> watchers = sections[6].Split('|').ToList();
                 //Make new ticket
-                Bug tempTicket = new Bug(sections[0], sections[1], sections[2], sections[3],
+                Bug bug = new Bug(sections[0], sections[1], sections[2], sections[3],
                 sections[4], sections[5], watchers, sections[7]);
                 //Add ticket to list
-                tickets.Add(tempTicket);
+                tickets.Add(bug);
             }
+            //Close the stream
             sr.Close();
         }
     }
