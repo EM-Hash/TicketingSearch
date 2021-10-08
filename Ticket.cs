@@ -37,10 +37,5 @@ namespace TicketingMidTerm{
             string ticketLine = $"{id,-11} | {summary,-25} | {priority,-15} | {submitter,-15} | {assigner,-15} | {String.Join(',',watching), -15}";
             return(ticketLine);
         }
-
-        //Method for returning the ID
-        public string getID(){
-            return id;
-        }
     }
 }
