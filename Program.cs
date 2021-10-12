@@ -9,18 +9,19 @@ namespace TicketingMidTerm
         //Create static logger to go across all files
         private static NLog.Logger logger = NLogBuilder.ConfigureNLog(Directory.GetCurrentDirectory() + "\\nlog.config").GetCurrentClassLogger();
         
-        /*
+        //Create TicketFile -- will be initialized with different file path / File class, based on user choice
+        static dynamic ticketFile = null;
+
         //Method to view tickets
-        static void viewTickets(BugFile bugFile){
+        static void viewTickets<T>() where T : Ticket{
             //Get BugFile list
-            List<Ticket> tickets = BugFile.getTickets();
+            List<T> tickets = ticketFile.getTickets();
             //for each ticket in the tickets list
-            foreach (Ticket t in tickets){
+            foreach (T t in tickets){
                 //Print the ticket
                 Console.WriteLine(t.getTicket());
             }
         }
-        */
         //Method to add tickets
         // static void addTicket(BugFile bugFile, string file){
         //     /* A ticket needs:
@@ -122,12 +123,11 @@ namespace TicketingMidTerm
             //Create file path to the tasks sheet
             string taskPath = Directory.GetCurrentDirectory() + "\\Tasks.csv";
 
-            //Create TicketFile -- will be initialized with different file path / File class, based on user choice
-            dynamic ticketFile;
-
             //Create do-while loop for user to choose what they want to do
             bool run = true;
             do{
+                //The type of file the user wants to make
+                string fileAns;
                 //Prompt user
                 Console.WriteLine("Welcome to the Ticketing Program!");
                 //Ask which file the user wants to work with
@@ -140,21 +140,23 @@ namespace TicketingMidTerm
                     Console.WriteLine("[2] Enhancements File");
                     Console.WriteLine("[3] Tasks File");
                     //Take in the user's answer
-                    string fileAns = Console.ReadLine();
+                    fileAns = Console.ReadLine();
                     //Create a switch based on what number the user puts in
                     switch(fileAns){
                         case "1":
-                            //If the user selects one, create the BugFile with the Bugs path
+                            //If the user selects one, create the BugFile with the Bugs path, and set the ticketType to Bug
                             ticketFile = new BugFile(bugPath);
                             fileLoop = false;
                             break;
                         case "2":
-                            //If the user selects two, create the EnhancementFile with the Enhancements path
+                            //If the user selects two, create the EnhancementFile with the Enhancements path, and set the
+                            //ticketType to Enhancement
                             ticketFile = new EnhancementFile(enhancementPath);
                             fileLoop = false;
                             break;
                         case "3":
-                            //If the user selects three, create the TaskFile with the Tasks path
+                            //If the user selects three, create the TaskFile with the Tasks path, and se the ticketType
+                            //to Task
                             ticketFile = new TaskFile(taskPath);
                             fileLoop = false;
                             break;
@@ -174,8 +176,22 @@ namespace TicketingMidTerm
                 //Use switch statement to decide where to go
                 switch(ans){
                     case "1":
-                        // //If the user selects 1, go to the viewTickets method
-                        // viewTickets(ticketFile);
+                        //If the user selects 1, go to the viewTickets method
+                        //To decide which type to use in the viewTickets method, use the fileAns
+                        switch(fileAns){
+                            case "1":
+                                //If the user answered 1, use the bug type
+                                viewTickets<Bug>();
+                                break;
+                            case "2":
+                                //If the user answered 2, use the Enhancement type
+                                viewTickets<Enhancement>();
+                                break;
+                            case "3":
+                                //If the user ansewred 3, use the Task type
+                                viewTickets<Task>();
+                                break;
+                        }
                         break;
                     case "2":
                         // //If the user selects 2, go to the addTicket method
