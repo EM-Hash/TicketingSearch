@@ -12,7 +12,7 @@ namespace TicketingMidTerm
         //Create TicketFile -- will be initialized with different file path / File class, based on user choice
         static dynamic ticketFile = null;
 
-        //Method to view tickets
+        //Method to view tickets11
         static void viewTickets<T>() where T : Ticket{
             //Get BugFile list
             List<T> tickets = ticketFile.getTickets();
@@ -376,21 +376,32 @@ namespace TicketingMidTerm
                         addTicket(ticketFile, ticketPath);
                         break;
                     case "3":
-                        // //If the user selects 3, make sure they REALLY want to get rid of all the tickets
-                        // Console.WriteLine();
-                        // Console.WriteLine("Delete all tickets? (Note: This CANNOT be undone) [Y/N]: ");
-                        // string choice = Console.ReadLine();
-                        // //If so, erase the file, if not, do nothing
-                        // if (choice[0] == 'Y' || choice[0] == 'y'){
-                        //     //Erase the file
-                        //     StreamWriter sw = new StreamWriter(ticketPath);
-                        //     //Write in the header line
-                        //     sw.WriteLine("TicketID, Summary, Status, Priority, Submitter, Assigned, Watching");
-                        //     //Close the stream writer
-                        //     sw.Close();
-                        //     //Rebuild ticket file
-                        //     ticketFile = new TicketFile(ticketPath);
-                        // }
+                        //If the user selects 3, make sure they REALLY want to get rid of all the tickets
+                        Console.WriteLine();
+                        Console.WriteLine("Delete all tickets? (Note: This CANNOT be undone) [Y/N]: ");
+                        string choice = Console.ReadLine();
+                        //If so, erase the file, if not, do nothing
+                        if (choice[0] == 'Y' || choice[0] == 'y'){
+                            //Erase the file
+                            StreamWriter sw = new StreamWriter(ticketPath);
+                            //Write in the header line, depending on the user's earlier input
+                            switch(fileAns){
+                                case "1":
+                                    //Bug line
+                                    sw.WriteLine("TicketID, Summary, Status, Priority, Submitter, Assigned, Watching, Severity");
+                                    break;
+                                case "2":
+                                    //Enhancement Line
+                                    sw.WriteLine("TicketID, Summary, Status, Priority, Submitter, Assigned, Watching, Software, Cost, Reason, Estimate");
+                                    break;
+                                case "3":
+                                    //Task line
+                                    sw.WriteLine("TicketID, Summary, Status, Priority, Submitter, Assigned, Watching, ProjectName, DueDate");
+                                    break;
+                            }
+                            //Close the stream writer
+                            sw.Close();
+                        }
                         break;
                     default:
                         run = false;
