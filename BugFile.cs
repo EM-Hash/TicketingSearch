@@ -23,7 +23,7 @@ namespace TicketingMidTerm{
                 string line = sr.ReadLine();
                 //Parse line
                 //There are seven sections, separated by a comma
-                string[] sections = line.Split(',');
+                string[] sections = line.Split(", ");
                 //There are an unknown number of watchers, but are separated by a |
                 List<string> watchers = sections[6].Split('|').ToList();
                 //Make new ticket

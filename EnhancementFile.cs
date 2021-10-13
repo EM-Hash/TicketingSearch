@@ -21,12 +21,12 @@ namespace TicketingMidTerm{
                 //Take in the next line
                 string line = sr.ReadLine();
                 //Split on the comma; there are 11 sections
-                string[] sections = line.Split(',');
+                string[] sections = line.Split(", ");
                 //There's an unknown number of watchers, separating by a | -- They're the seventh section of the line
                 List<string> watchers = sections[6].Split('|').ToList();
                 //Make new ticket -- the ninth value is a double
                 Enhancement enh = new Enhancement(sections[0], sections[1], sections[2], sections[3], sections[4], sections[5],
-                watchers, sections[7], Double.Parse(sections[8]), sections[9], sections[10]);
+                watchers, sections[7], Double.Parse(sections[8].Substring(1)), sections[9], sections[10]);
                 //Add the ticket to the list
                 tickets.Add(enh);
             }
