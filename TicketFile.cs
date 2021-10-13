@@ -28,7 +28,11 @@ namespace TicketingMidTerm{
 
         //Method to return the last ticket's ID
         public string lastID(){
-            return tickets.Last().id;
+            if(tickets.Count != 0){
+                return tickets.Last().id;
+            } else {
+                return "0";
+            }
         }
 
         //Method to add ticket to ticket list

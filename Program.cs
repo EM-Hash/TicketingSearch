@@ -22,98 +22,103 @@ namespace TicketingMidTerm
                 Console.WriteLine(t.getTicket());
             }
         }
-        //Method to add tickets
-        // static void addTicket(BugFile bugFile, string file){
-        //     /* A ticket needs:
-        //     - an ID
-        //     - a summary
-        //     - a status
-        //     - a priority
-        //     - a submitter
-        //     - an assigner
-        //     - watchers
-        //     */
-        //     int id;
-        //     string summary;
-        //     string status;
-        //     string priority;
-        //     string submitter;
-        //     string assigner;
-        //     //For now, create a list of watchers - will convert later on
-        //     List<string> watchers = new List<string>();
-        //     //Generate the ID
-        //     //Take the value of the ID of the last ticket in BugFile and add 1
-        //     //To do this, first take in the last ID as an int
-        //     if (!Int32.TryParse(bugFile.lastID(),out id)){
-        //         //If it can't be an int, then start at 0
-        //         id = 0;
-        //     }
-        //     //Add to the id
-        //     id += 1;
-        //     //Convert the id to a string
-        //     string tempID = id.ToString();
+        //Method to add tickets for Bug Files
+        static void addTicket(BugFile bugFile, string file){
+            /* A bug ticket needs:
+            - an ID
+            - a summary
+            - a status
+            - a priority
+            - a submitter
+            - an assigner
+            - watchers
+            - a severity
+            */
+            int id;
+            string summary;
+            string status;
+            string priority;
+            string submitter;
+            string assigner;
+            string severity;
+            //For now, create a list of watchers - will convert later on
+            List<string> watchers = new List<string>();
+            //Generate the ID
+            //Take the value of the ID of the last ticket in BugFile and add 1
+            //To do this, first take in the last ID as an int
+            if (!Int32.TryParse(bugFile.lastID(),out id)){
+                //If it can't be an int, then start at 0
+                id = 0;
+            }
+            //Add to the id
+            id += 1;
+            //Convert the id to a string
+            string tempID = id.ToString();
 
-        //     //Ask the user for the...
-        //     //Summary
-        //     summary = getValue("summary");
-        //     //Status
-        //     status = getValue("status");
-        //     //Priority
-        //     priority = getValue("priority");
-        //     //Submitter
-        //     submitter = getValue("submitter");
-        //     //Assigner
-        //     assigner = getValue("assigner");
-        //     //Watchers
-        //     bool addWatcher = true;
-        //     do{
-        //         //Until the user is done adding watchers
-        //         //Prompt the user to add a watcher
-        //         watchers.Add(getValue("next watcher"));
-        //         //Check if the user would like to add another watcher
-        //         Console.WriteLine("Add another watcher? [Y/N]: ");
-        //         string ans = Console.ReadLine();
-        //         if (ans.ToLower()[0] == 'y'){
-        //             //If the user wants to keep going, the boolean will stay true
-        //             addWatcher = true;
-        //         } else {
-        //             //Else, it will be false, and the loop will break
-        //             addWatcher = false;
-        //         }
-        //     } while (addWatcher);
-        //     //Once finished, create a watcher array
-        //     string[] watchArray = watchers.ToArray();
-        //     //Create new ticket
-        //     Ticket newTicket = new Ticket(tempID, summary, status, priority, submitter, 
-        //     assigner, watchArray);
-        //     //Add ticket to BugFile and write to .csv file
-        //     bugFile.addTicket(newTicket);
-        //     //Create a new streamwriter
-        //     StreamWriter sw = new StreamWriter(file, true);
-        //     //Create the string to write in, add in values save for the watchers
-        //     string fileTicket = $"{id},{summary},{status},{priority},{submitter},{assigner},";
-        //     //For each value in watchArray, save the last
-        //     for (int i = 0; i < watchArray.Length - 1; i++){
-        //         fileTicket += watchArray[i] + "|";
-        //     }
-        //     //Add in the last watcher
-        //     fileTicket += watchArray[watchArray.Length - 1];
-        //     //Write in the ticket
-        //     sw.WriteLine(fileTicket);
-        //     //Close the writer
-        //     sw.Close();
-        //     //Return to main method
-        // }
-        // //Method to ask the user for a value, and save it
-        // static string getValue(string valueName){
-        //     Console.WriteLine($"Please enter the {valueName}: ");
-        //     string value = Console.ReadLine();
-        //     if (value == "" || value == " "){
-        //         return "N/A";
-        //     } else {
-        //         return value;
-        //     }
-        // }
+            //Ask the user for the...
+            //Summary
+            summary = getValue("summary");
+            //Status
+            status = getValue("status");
+            //Priority
+            priority = getValue("priority");
+            //Submitter
+            submitter = getValue("submitter");
+            //Assigner
+            assigner = getValue("assigner");
+            //Watchers
+            bool addWatcher = true;
+            do{
+                //Until the user is done adding watchers
+                //Prompt the user to add a watcher
+                watchers.Add(getValue("next watcher"));
+                //Check if the user would like to add another watcher
+                Console.WriteLine("Add another watcher? [Y/N]: ");
+                string ans = Console.ReadLine();
+                if (ans.ToLower()[0] == 'y'){
+                    //If the user wants to keep going, the boolean will stay true
+                    addWatcher = true;
+                } else {
+                    //Else, it will be false, and the loop will break
+                    addWatcher = false;
+                }
+            } while (addWatcher);
+            //Seveirty
+            severity = getValue("severity");
+            //Create new Bug Ticket
+            Bug newBug = new Bug(tempID, summary, status, priority, submitter, 
+            assigner, watchers, severity);
+            //Add ticket to BugFile and write to .csv file
+            bugFile.addTicket(newBug);
+            //Create a new streamwriter
+            StreamWriter sw = new StreamWriter(file, true);
+            //Create the string to write in, add in values
+            string fileTicket = $"{id}, {summary}, {status}, {priority}, {submitter}, {assigner}, {string.Join("|",watchers.ToArray())}, {severity}";
+            //Write in the ticket
+            sw.WriteLine(fileTicket);
+            //Close the writer
+            sw.Close();
+            //Return to main method
+        }
+        
+        //Method to add tickets for Enhancement Files
+        static void addTicket(EnhancementFile enhanceFile, string file){
+
+        }
+        //Method to add tickets for Task Files
+        static void addTicket(TaskFile taskFile, string file){
+
+        }
+        //Method to ask the user for a value, and save it
+        static string getValue(string valueName){
+            Console.WriteLine($"Please enter the {valueName}: ");
+            string value = Console.ReadLine();
+            if (value == "" || value == " "){
+                return "N/A";
+            } else {
+                return value;
+            }
+        }
         static void Main(string[] args)
         {
             //Create file path to the bugs sheet
@@ -122,6 +127,8 @@ namespace TicketingMidTerm
             string enhancementPath = Directory.GetCurrentDirectory() + "\\Enhancements.csv";
             //Create file path to the tasks sheet
             string taskPath = Directory.GetCurrentDirectory() + "\\Tasks.csv";
+            //The ticket path used
+            string ticketPath = null;
 
             //Create do-while loop for user to choose what they want to do
             bool run = true;
@@ -146,18 +153,21 @@ namespace TicketingMidTerm
                         case "1":
                             //If the user selects one, create the BugFile with the Bugs path, and set the ticketType to Bug
                             ticketFile = new BugFile(bugPath);
+                            ticketPath = bugPath;
                             fileLoop = false;
                             break;
                         case "2":
                             //If the user selects two, create the EnhancementFile with the Enhancements path, and set the
                             //ticketType to Enhancement
                             ticketFile = new EnhancementFile(enhancementPath);
+                            ticketPath = enhancementPath;
                             fileLoop = false;
                             break;
                         case "3":
                             //If the user selects three, create the TaskFile with the Tasks path, and se the ticketType
                             //to Task
                             ticketFile = new TaskFile(taskPath);
+                            ticketPath = taskPath;
                             fileLoop = false;
                             break;
                         default:
@@ -194,8 +204,8 @@ namespace TicketingMidTerm
                         }
                         break;
                     case "2":
-                        // //If the user selects 2, go to the addTicket method
-                        // addTicket(ticketFile, ticketPath);
+                        //If the user selects 2, go to the addTicket method
+                        addTicket(ticketFile, ticketPath);
                         break;
                     case "3":
                         // //If the user selects 3, make sure they REALLY want to get rid of all the tickets
