@@ -24,9 +24,12 @@ namespace TicketingMidTerm{
                     string[] sections = line.Split(", ");
                     //There's an unknown number of watchers, separated by a |
                     List<string> watchers = sections[6].Split('|').ToList();
+                    //Parse the last section to make a date time
+                    string[] dateParts = sections[8].Split('/');
+                    DateTime date = new DateTime(Int32.Parse(dateParts[2]),Int32.Parse(dateParts[1]),Int32.Parse(dateParts[0]));
                     //Make a new ticket
                     Task task = new Task(sections[0], sections[1], sections[2], sections[3], sections [4], sections[5],
-                    watchers, sections[7], DateTime.Parse(sections[8]));
+                    watchers, sections[7], date);
                     //Add ticket to list
                     tickets.Add(task);
                 }     

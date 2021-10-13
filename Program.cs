@@ -83,7 +83,7 @@ namespace TicketingMidTerm
                     addWatcher = false;
                 }
             } while (addWatcher);
-            //Seveirty
+            //Severity
             severity = getValue("severity");
             //Create new Bug Ticket
             Bug newBug = new Bug(tempID, summary, status, priority, submitter, 
@@ -103,11 +103,179 @@ namespace TicketingMidTerm
         
         //Method to add tickets for Enhancement Files
         static void addTicket(EnhancementFile enhanceFile, string file){
+            /* An ehnancement ticket needs:
+            - an ID
+            - a summary
+            - a status
+            - a priority
+            - a submitter
+            - an assigner
+            - watchers
+            - a software
+            - a cost
+            - a reason
+            - an estimate
+            */
+            int id;
+            string summary;
+            string status;
+            string priority;
+            string submitter;
+            string assigner;
+            string software;
+            double cost;
+            string reasoning;
+            string estimate;
+            //For now, create a list of watchers - will convert later on
+            List<string> watchers = new List<string>();
+            //Generate the ID
+            //Take the value of the ID of the last ticket in BugFile and add 1
+            //To do this, first take in the last ID as an int
+            if (!Int32.TryParse(enhanceFile.lastID(),out id)){
+                //If it can't be an int, then start at 0
+                id = 0;
+            }
+            //Add to the id
+            id += 1;
+            //Convert the id to a string
+            string tempID = id.ToString();
 
+            //Ask the user for the...
+            //Summary
+            summary = getValue("summary");
+            //Status
+            status = getValue("status");
+            //Priority
+            priority = getValue("priority");
+            //Submitter
+            submitter = getValue("submitter");
+            //Assigner
+            assigner = getValue("assigner");
+            //Watchers
+            bool addWatcher = true;
+            do{
+                //Until the user is done adding watchers
+                //Prompt the user to add a watcher
+                watchers.Add(getValue("next watcher"));
+                //Check if the user would like to add another watcher
+                Console.WriteLine("Add another watcher? [Y/N]: ");
+                string ans = Console.ReadLine();
+                if (ans.ToLower()[0] == 'y'){
+                    //If the user wants to keep going, the boolean will stay true
+                    addWatcher = true;
+                } else {
+                    //Else, it will be false, and the loop will break
+                    addWatcher = false;
+                }
+            } while (addWatcher);
+            //Software
+            software = getValue("software");
+            //Cost - keep going until a valid number is put in
+            while(!Double.TryParse(getValue("cost"),out cost)){
+                Console.WriteLine("That is not a valid cost. \n");
+            }
+            //Reason
+            reasoning = getValue("reason");
+            //Estimate
+            estimate = getValue("estimate");
+            //Create new Bug Ticket
+            Enhancement newEnhancement = new Enhancement(tempID, summary, status, priority, submitter, 
+            assigner, watchers, software, cost, reasoning, estimate);
+            //Add ticket to BugFile and write to .csv file
+            enhanceFile.addTicket(newEnhancement);
+            //Create a new streamwriter
+            StreamWriter sw = new StreamWriter(file, true);
+            //Create the string to write in, add in values
+            string fileTicket = $"{id}, {summary}, {status}, {priority}, {submitter}, {assigner}, {string.Join("|",watchers.ToArray())}, {software}, {cost:C2}, {reasoning}, {estimate}";
+            //Write in the ticket
+            sw.WriteLine(fileTicket);
+            //Close the writer
+            sw.Close();
+            //Return to main method
         }
         //Method to add tickets for Task Files
         static void addTicket(TaskFile taskFile, string file){
+            /* A bug ticket needs:
+            - an ID
+            - a summary
+            - a status
+            - a priority
+            - a submitter
+            - an assigner
+            - watchers
+            - a project name
+            - a due date
+            */
+            int id;
+            string summary;
+            string status;
+            string priority;
+            string submitter;
+            string assigner;
+            string projectName;
+            DateTime dueDate;
+            //For now, create a list of watchers - will convert later on
+            List<string> watchers = new List<string>();
+            //Generate the ID
+            //Take the value of the ID of the last ticket in BugFile and add 1
+            //To do this, first take in the last ID as an int
+            if (!Int32.TryParse(taskFile.lastID(),out id)){
+                //If it can't be an int, then start at 0
+                id = 0;
+            }
+            //Add to the id
+            id += 1;
+            //Convert the id to a string
+            string tempID = id.ToString();
 
+            //Ask the user for the...
+            //Summary
+            summary = getValue("summary");
+            //Status
+            status = getValue("status");
+            //Priority
+            priority = getValue("priority");
+            //Submitter
+            submitter = getValue("submitter");
+            //Assigner
+            assigner = getValue("assigner");
+            //Watchers
+            bool addWatcher = true;
+            do{
+                //Until the user is done adding watchers
+                //Prompt the user to add a watcher
+                watchers.Add(getValue("next watcher"));
+                //Check if the user would like to add another watcher
+                Console.WriteLine("Add another watcher? [Y/N]: ");
+                string ans = Console.ReadLine();
+                if (ans.ToLower()[0] == 'y'){
+                    //If the user wants to keep going, the boolean will stay true
+                    addWatcher = true;
+                } else {
+                    //Else, it will be false, and the loop will break
+                    addWatcher = false;
+                }
+            } while (addWatcher);
+            //Project Name
+            projectName = getValue("project name");
+            //Due Date - keep going until a valid due date is given
+            while(!DateTime.TryParse(getValue("due date (MM/DD/YYYY)"), out dueDate)){
+                Console.WriteLine("That is not a valid date. \n");
+            }
+            //Create new Bug Ticket
+            Task newTask = new Task(tempID, summary, status, priority, submitter, 
+            assigner, watchers, projectName, dueDate);
+            //Add ticket to BugFile and write to .csv file
+            taskFile.addTicket(newTask);
+            //Create a new streamwriter
+            StreamWriter sw = new StreamWriter(file, true);
+            //Create the string to write in, add in values
+            string fileTicket = $"{id}, {summary}, {status}, {priority}, {submitter}, {assigner}, {string.Join("|",watchers.ToArray())}, {projectName}, {dueDate:dd/MM/yyyy}";
+            //Write in the ticket
+            sw.WriteLine(fileTicket);
+            //Close the writer
+            sw.Close();
+            //Return to main method
         }
         //Method to ask the user for a value, and save it
         static string getValue(string valueName){
