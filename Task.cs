@@ -30,7 +30,7 @@ namespace TicketingMidTerm{
         //Override printing method to add in the projectName and dueDate
         public override string getTicket(){
             //Put in all the values save the watchers
-            string ticketLine = $"{id,-11} | {summary,-25} | {priority,-15} | {submitter,-15} | {assigner,-15} | {String.Join(',',watching), -25} | {projectName, -15} | {dueDate, -10: DD/MM/YY}";
+            string ticketLine = $"{id,-11} | {summary,-25} | {priority,-15} | {submitter,-15} | {assigner,-15} | {String.Join(',',watching), -25} | {projectName, -15} | {dueDate, -10: dd/MM/yyyy}";
             return(ticketLine);
         }
     }
