@@ -2,6 +2,7 @@
 using System.IO;
 using NLog.Web;
 using System.Collections.Generic;
+using System.Linq;
 namespace TicketingMidTerm
 {
     class Program
@@ -316,16 +317,86 @@ namespace TicketingMidTerm
                     Console.WriteLine("That is not a valid input. \n");
                 }
             } while (!validInput);
+            //Get the search value
+            Console.WriteLine("Please enter the search value: ");
+            string search = Console.ReadLine();
+            
+            //The search results, once we're ready for them
+            dynamic searchResults;
+            //The string format of the string results
+            List<string> stringResults = new List<string>();
+            //Make a search based on what the user is searching by
+            switch(ans){
+                case "1":
+                    //If one, search based on status
+                    //Search ALL THREE FILES, adding on to the searchResults each time
+                    searchResults = bugFile.tickets.Where(b => b.status.ToLower().Contains(search.ToLower()));
+                    foreach (Bug b in searchResults){
+                        stringResults.Add(b.getTicket());
+                    }
+                    searchResults = enhancementFile.tickets.Where(e => e.status.ToLower().Contains(search.ToLower()));
+                    foreach (Enhancement e in searchResults){
+                        stringResults.Add(e.getTicket());
+                    }
+                    searchResults = taskFile.tickets.Where(t => t.status.ToLower().Contains(search.ToLower()));
+                    foreach (Task t in searchResults){
+                        stringResults.Add(t.getTicket());
+                    }
+                    break;
+                case "2":
+                    //If two, search based on priority
+                    //Search ALL THREE FILES, adding on to the searchResults each time
+                    searchResults = bugFile.tickets.Where(b => b.priority.ToLower().Contains(search.ToLower()));
+                    foreach (Bug b in searchResults){
+                        stringResults.Add(b.getTicket());
+                    }
+                    searchResults = enhancementFile.tickets.Where(e => e.priority.ToLower().Contains(search.ToLower()));
+                    foreach (Enhancement e in searchResults){
+                        stringResults.Add(e.getTicket());
+                    }
+                    searchResults = taskFile.tickets.Where(t => t.priority.ToLower().Contains(search.ToLower()));
+                    foreach (Task t in searchResults){
+                        stringResults.Add(t.getTicket());
+                    }
+                    break;
+                case "3":
+                    //If three, search based on submitter
+                    //Search ALL THREE FILES, adding on to the searchResults each time
+                    searchResults = bugFile.tickets.Where(b => b.submitter.ToLower().Contains(search.ToLower()));
+                    foreach (Bug b in searchResults){
+                        stringResults.Add(b.getTicket());
+                    }
+                    searchResults = enhancementFile.tickets.Where(e => e.submitter.ToLower().Contains(search.ToLower()));
+                    foreach (Enhancement e in searchResults){
+                        stringResults.Add(e.getTicket());
+                    }
+                    searchResults = taskFile.tickets.Where(t => t.submitter.ToLower().Contains(search.ToLower()));
+                    foreach (Task t in searchResults){
+                        stringResults.Add(t.getTicket());
+                    }
+                    break;
+            }
+            //Give a count of the search results - if there's none, say so
+            if(!stringResults.Any()){
+                //If there's no results, say so
+                Console.WriteLine("There are no tickets matching the search criteria.");
+            } else {
+                //Otherwise, give the count and list the tickets
+                Console.WriteLine($"There are {stringResults.Count()} tickets matching the search criteria:");
+                foreach(string s in stringResults){
+                    Console.WriteLine(s);
+                }
+            }
 
             //Next, search through ALL THREE FILES, save each in its own list
             //If there's a value in ANY of the files...
                 //Print the count of ALL files
                 //Print results of ALL files
-            //If not, inform the user and quit
         }
 
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             //Create file path to the bugs sheet
             string bugPath = Directory.GetCurrentDirectory() + "\\Bugs.csv";
             //Create file path to the enhancement sheet
@@ -341,7 +412,9 @@ namespace TicketingMidTerm
                 //The type of file the user wants to make
                 string fileAns;
                 //Prompt user
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Welcome to the Ticketing Program!");
+                Console.ForegroundColor = ConsoleColor.White;
                 //Ask which file the user wants to work with
                 bool fileLoop = true;
                 //While the user is still deciding...
