@@ -289,10 +289,35 @@ namespace TicketingMidTerm
         }
 
         //Method for searching the ticket files
-        static void searchTickets(){
+        static void searchTickets(string bugPath, string enhancementPath, string taskPath){
+            //Create the three files to work with
+            BugFile bugFile = new BugFile(bugPath);
+            EnhancementFile enhancementFile = new EnhancementFile(enhancementPath);
+            TaskFile taskFile = new TaskFile(taskPath);
             //Ask the user what they want to use for searching: status, priority, or submitter
-            //Save answer
-            //Search through ALL THREE FILES, save each in own list
+            bool validInput = false;
+            string ans;
+            //Until the user gives an valid input...  
+            do{
+                //Prompt for an input
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("What would you like to search by?:");
+                Console.WriteLine("[1] Status");
+                Console.WriteLine("[2] Priority");
+                Console.WriteLine("[3] Submitter");
+                Console.ForegroundColor = ConsoleColor.White;
+                //Take in the answer
+                ans = Console.ReadLine();
+                //If it's a 1, 2, or 3, continue
+                if (ans == "1" || ans == "2" || ans == "3"){
+                    validInput = true;
+                } else {
+                    //Otherwise, user is reprompted
+                    Console.WriteLine("That is not a valid input. \n");
+                }
+            } while (!validInput);
+
+            //Next, search through ALL THREE FILES, save each in its own list
             //If there's a value in ANY of the files...
                 //Print the count of ALL files
                 //Print results of ALL files
@@ -419,6 +444,10 @@ namespace TicketingMidTerm
                             //Close the stream writer
                             sw.Close();
                         }
+                        break;
+                    case "4":
+                        //If the user selects 4, call the serach tickets method
+                        searchTickets(bugPath, enhancementPath, taskPath);
                         break;
                     default:
                         run = false;
