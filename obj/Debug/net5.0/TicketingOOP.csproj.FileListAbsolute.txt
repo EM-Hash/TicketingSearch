@@ -38,3 +38,23 @@ C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\bin\Debug\net5.0\NLog
 C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\bin\Debug\net5.0\NLog.Web.AspNetCore.dll
 C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\obj\Debug\net5.0\TicketingOOP.csproj.CopyComplete
 C:\Users\addde\source\repos\WCTC Projects\TicketingMidterm\obj\Debug\net5.0\TicketingOOP.genruntimeconfig.cache
+C:\Users\bitstudent\source\repos\TicketingSearch\bin\Debug\net5.0\TicketingOOP.exe
+C:\Users\bitstudent\source\repos\TicketingSearch\bin\Debug\net5.0\TicketingOOP.deps.json
+C:\Users\bitstudent\source\repos\TicketingSearch\bin\Debug\net5.0\TicketingOOP.runtimeconfig.json
+C:\Users\bitstudent\source\repos\TicketingSearch\bin\Debug\net5.0\TicketingOOP.runtimeconfig.dev.json
+C:\Users\bitstudent\source\repos\TicketingSearch\bin\Debug\net5.0\TicketingOOP.dll
+C:\Users\bitstudent\source\repos\TicketingSearch\bin\Debug\net5.0\ref\TicketingOOP.dll
+C:\Users\bitstudent\source\repos\TicketingSearch\bin\Debug\net5.0\TicketingOOP.pdb
+C:\Users\bitstudent\source\repos\TicketingSearch\bin\Debug\net5.0\NLog.dll
+C:\Users\bitstudent\source\repos\TicketingSearch\bin\Debug\net5.0\NLog.Extensions.Logging.dll
+C:\Users\bitstudent\source\repos\TicketingSearch\bin\Debug\net5.0\NLog.Web.AspNetCore.dll
+C:\Users\bitstudent\source\repos\TicketingSearch\obj\Debug\net5.0\TicketingOOP.csproj.AssemblyReference.cache
+C:\Users\bitstudent\source\repos\TicketingSearch\obj\Debug\net5.0\TicketingOOP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bitstudent\source\repos\TicketingSearch\obj\Debug\net5.0\TicketingOOP.AssemblyInfoInputs.cache
+C:\Users\bitstudent\source\repos\TicketingSearch\obj\Debug\net5.0\TicketingOOP.AssemblyInfo.cs
+C:\Users\bitstudent\source\repos\TicketingSearch\obj\Debug\net5.0\TicketingOOP.csproj.CoreCompileInputs.cache
+C:\Users\bitstudent\source\repos\TicketingSearch\obj\Debug\net5.0\TicketingOOP.csproj.CopyComplete
+C:\Users\bitstudent\source\repos\TicketingSearch\obj\Debug\net5.0\TicketingOOP.dll
+C:\Users\bitstudent\source\repos\TicketingSearch\obj\Debug\net5.0\ref\TicketingOOP.dll
+C:\Users\bitstudent\source\repos\TicketingSearch\obj\Debug\net5.0\TicketingOOP.pdb
+C:\Users\bitstudent\source\repos\TicketingSearch\obj\Debug\net5.0\TicketingOOP.genruntimeconfig.cache

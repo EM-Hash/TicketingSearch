@@ -287,6 +287,18 @@ namespace TicketingMidTerm
                 return value;
             }
         }
+
+        //Method for searching the ticket files
+        static void searchTickets(){
+            //Ask the user what they want to use for searching: status, priority, or submitter
+            //Save answer
+            //Search through ALL THREE FILES, save each in own list
+            //If there's a value in ANY of the files...
+                //Print the count of ALL files
+                //Print results of ALL files
+            //If not, inform the user and quit
+        }
+
         static void Main(string[] args)
         {
             //Create file path to the bugs sheet
@@ -309,11 +321,13 @@ namespace TicketingMidTerm
                 bool fileLoop = true;
                 //While the user is still deciding...
                 do {
-                    //Ask the user which file they want to work wtih
+                    //Ask the user which file they want to work with
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Which file would you like to work with?");
                     Console.WriteLine("[1] Bugs/Defects File");
                     Console.WriteLine("[2] Enhancements File");
                     Console.WriteLine("[3] Tasks File");
+                    Console.ForegroundColor = ConsoleColor.White;
                     //Take in the user's answer
                     fileAns = Console.ReadLine();
                     //Create a switch based on what number the user puts in
@@ -344,11 +358,14 @@ namespace TicketingMidTerm
                             break;
                     }
                 } while (fileLoop);
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("[1] View Tickets");
                 Console.WriteLine("[2] Add Tickets");
                 Console.WriteLine("[3] Clear Tickets");
-                Console.WriteLine("[4] Quit");
+                Console.WriteLine("[4] Search Tickets");
+                Console.WriteLine("[5] Quit");
+                Console.ForegroundColor = ConsoleColor.White;
                 //Take in user input
                 string ans = Console.ReadLine();
                 //Use switch statement to decide where to go
